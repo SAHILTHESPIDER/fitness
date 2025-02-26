@@ -1,0 +1,53 @@
+[
+   {
+     "category": "Upper Body",
+     "exercises": [
+       { "name": "Push-ups", "gif": "https://media.tenor.com/xTj6p_KLZ-4AAAAC/push-ups.gif" },
+       { "name": "Pull-ups", "gif": "https://media.tenor.com/J1diP2OJsLIAAAAM/pull-ups.gif" },
+       { "name": "Bench Press", "gif": "https://media.tenor.com/NG94cfwOJ04AAAAd/bench-press.gif" },
+       { "name": "Bicep Curls", "gif": "https://media.tenor.com/3ALR6l1JbwAAAAAM/bicep-curl.gif" },
+       { "name": "Shoulder Press", "gif": "https://media.tenor.com/AxEXt-RY0KoAAAAC/shoulder-press.gif" }
+     ]
+   },
+   {
+     "category": "Lower Body",
+     "exercises": [
+       { "name": "Squats", "gif": "https://media.tenor.com/hN2FLzWtfP0AAAAM/squat-fitness.gif" },
+       { "name": "Lunges", "gif": "https://media.tenor.com/FtVAvAebGiAAAAAC/lunges-workout.gif" },
+       { "name": "Deadlifts", "gif": "https://media.tenor.com/7fOHaJibkEYAAAAM/deadlift.gif" },
+       { "name": "Leg Press", "gif": "https://media.tenor.com/ogxNnyKNPKsAAAAM/leg-press.gif" },
+       { "name": "Calf Raises", "gif": "https://media.tenor.com/LZTcV_KXydEAAAAM/calf-raises.gif" }
+     ]
+   },
+   {
+     "category": "Abs",
+     "exercises": [
+       { "name": "Crunches", "gif": "https://media.tenor.com/EHuwyAX6nNwAAAAM/abs-crunches.gif" },
+       { "name": "Planks", "gif": "https://media.tenor.com/Ny5qSklNpMgAAAAM/plank-workout.gif" },
+       { "name": "Russian Twists", "gif": "https://media.tenor.com/bJax-fIWlQwAAAAM/russian-twist-exercise.gif" },
+       { "name": "Bicycle Kicks", "gif": "https://media.tenor.com/UJqEv0Vs8aAAAAAM/bicycle-kicks.gif" },
+       { "name": "Leg Raises", "gif": "https://media.tenor.com/djppMmr_NNQAAAAM/leg-raises.gif" }
+     ]
+   },
+   {
+     "category": "Yoga",
+     "exercises": [
+       { "name": "Downward Dog", "gif": "https://media.tenor.com/RNCptX37-BkAAAAM/downward-dog-yoga.gif" },
+       { "name": "Warrior Pose", "gif": "https://media.tenor.com/UAv0RuYhEqgAAAAM/warrior-pose.gif" },
+       { "name": "Tree Pose", "gif": "https://media.tenor.com/G4Xy89lGkQoAAAAM/tree-pose-yoga.gif" },
+       { "name": "Cobra Stretch", "gif": "https://media.tenor.com/Hu6YYQ4u8lkAAAAM/cobra-stretch-yoga.gif" },
+       { "name": "Child’s Pose", "gif": "https://media.tenor.com/M3ktPKcoCawAAAAM/childs-pose.gif" }
+     ]
+   },
+   {
+     "category": "Cardio",
+     "exercises": [
+       { "name": "Running", "gif": "https://media.tenor.com/uGjjJt7KtDUAAAAM/running.gif" },
+       { "name": "Jump Rope", "gif": "https://media.tenor.com/riJErSa5MzQAAAAM/jump-rope.gif" },
+       { "name": "Burpees", "gif": "https://media.tenor.com/smjXBJKRtT8AAAAM/burpees-workout.gif" },
+       { "name": "Jumping Jacks", "gif": "https://media.tenor.com/k4DfFhlL2PoAAAAM/jumping-jacks.gif" },
+       { "name": "Mountain Climbers", "gif": "https://media.tenor.com/BXw8_s07LfcAAAAM/mountain-climbers.gif" }
+     ]
+   }
+ ]
+ 
