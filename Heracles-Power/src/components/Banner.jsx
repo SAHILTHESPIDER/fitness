@@ -35,7 +35,7 @@ export const Banner = () => {
               explicabo blanditiis qui, odit ratione dolores quia omnis, aut
               facilis impedit. Praesentium, architecto.
             </p>
-            <button className="bg-custom-black px-3 py-2 rounded-md text-white w-28">
+            <button className="bg-custom-black px-3 py-2 rounded-md text-white w-28 ">
               {" "}
               Get Started
             </button>
