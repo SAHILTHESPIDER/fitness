@@ -28,6 +28,7 @@ export default function About() {
             <h2>Our Team</h2>
             <div className='flex flex-row space-x-4'>
               <div className="rounded-full w-16 h-16 bg-gray-400"></div>
+              <h1>SahilGupta</h1>
               <div className="rounded-full w-16 h-16 bg-gray-400"></div>
               </div>
           </div>

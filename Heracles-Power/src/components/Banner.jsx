@@ -3,6 +3,7 @@ import model from "../assets/model.png";
 import { ReactTyped } from "react-typed";
 import { FaGoogle, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export const Banner = () => {
   return (
@@ -35,10 +36,8 @@ export const Banner = () => {
               explicabo blanditiis qui, odit ratione dolores quia omnis, aut
               facilis impedit. Praesentium, architecto.
             </p>
-            <button className="bg-custom-black px-3 py-2 rounded-md text-white w-28 ">
-              {" "}
-              Get Started
-            </button>
+            
+            <Link to="/bmi" className="bg-custom-black px-3 py-2 rounded-md text-white w-28 ">Get Started</Link>
            
           </div>
         </div>

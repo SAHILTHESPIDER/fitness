@@ -7,6 +7,7 @@ import Bmi from "./components/Bmi/Bmi"
 import Diet from "./screen/Food/Diet"
 import Aboutscreen from "./screen/about/Aboutscreen"
 import FitScreen from "./screen/Workout/FitScreen"
+import Forget from "./screen/Login & Signup/Forget"
 
 
 
@@ -19,6 +20,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
     <Route path="/login" element={<LoginScreen/>}/>
     <Route path="/signup" element={<LoginScreen/>}/>
+    <Route path="/ForgetPassword" element={<Forget />}/>
     <Route path="/bmi" element={<Bmi/>}/>
     <Route path="/profile" element={ <Profile/>}/>
     <Route path="/diet" element={ <Diet />}/>

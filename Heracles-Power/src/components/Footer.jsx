@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
   return (
@@ -9,6 +10,7 @@ export const Footer = () => {
     <h6 className="footer-title text-xl">Services</h6>
     <div className='flex-col flex '>
     <a className="link link-hover">BMI Calculator</a>
+    <Link to="/bmi" >BMI</Link>
     <a className="link link-hover">Diet plan</a>
     <a className="link link-hover">Expert</a>
     <a className="link link-hover">Workouts</a>

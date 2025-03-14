@@ -4,6 +4,7 @@ import myImage from "../../assets/SignInBG.jpg";
 import { LoginCard } from "./LoginCard";
 import { useLocation } from "react-router-dom";
 import { SignupCard } from "./SignupCard";
+import Forget from "./Forget";
 
 export const LoginScreen = () => {
   const location = useLocation(); // Detect current route
@@ -21,6 +22,11 @@ export const LoginScreen = () => {
       </div>
       <div className={`${isLoginScreen?"hidden":"block"}`}>
         <SignupCard/>
+
+    </div>
+    <div className={`${isLoginScreen?"hidden":"block"}`}>
+        <Forget/>
+
     </div>
     </div>
   );
