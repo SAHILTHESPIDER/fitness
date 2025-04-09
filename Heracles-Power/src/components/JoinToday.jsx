@@ -4,75 +4,76 @@ import { PricingCard } from "./PricingCard";
 export const JoinToday = () => {
   const [isYearly, setIsYearly] = useState(false);
 
-//   pricingcard data 
+  // Pricing data with monthly and yearly toggle logic
   const plans = [
     {
       plan: "Beginner Plan",
-      price: "05",
+      monthly: "05",
+      yearly: "50",
       features: [
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
+        "Includes basic gym or workout access",
+        "Access to standard features (e.g., limited equipment, beginner workouts)"
       ],
       isHighlighted: false,
     },
     {
       plan: "Premium Plan",
-      price: "15",
+      monthly: "15",
+      yearly: "150",
       features: [
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
+        "Best for serious fitness enthusiasts",
+        "Full access to all gym facilities",
+        "Advanced training plans & personalized coaching",
+        "Priority booking, exclusive classes, and more"
       ],
       isHighlighted: true,
     },
-     
   ];
+
   return (
-    <>
-      {/* main div  */}
-      <div className="main w-screen my-11 px-4">
-        {/* containing 2 div 1st is Join Today title div and 2nd div is toggle button  */}
-        <div className="flex justify-between md:px-10">
-          <div className="title">
-            <h6>Pricing Plan</h6>
-            <h1 className="md:text-4xl text-2xl font-bold">JOIN TODAY </h1>
-          </div>
-          {/* Monthly and Yearly Toggle button  */}
-          <div>            
-            <div className="inline-flex items-center bg-gray-200 rounded-full p-1">
-              <button
-                className={`px-2 py-1 rounded-full transition ${
-                  !isYearly ? "bg-white text-black" : "text-gray-500"
-                }`}
-                onClick={() => setIsYearly(false)}
-              >
-                Monthly
-              </button>
-              <button
-                className={`px-2 py-1 rounded-full transition ${
-                  isYearly ? "bg-black text-white" : "text-gray-500"
-                }`}
-                onClick={() => setIsYearly(true)}
-              >
-                Yearly
-              </button>
-            </div>
-          </div>
+    <div className="main w-screen my-11 px-4">
+      {/* Header & Toggle */}
+      <div className="flex justify-between items-center md:px-10 mb-6 flex-wrap gap-4">
+        <div className="title">
+          <h6>Pricing Plan</h6>
+          <h1 className="md:text-4xl text-2xl font-bold">JOIN TODAY</h1>
         </div>
-        {/* PricingCard section */}
-        <div className="flex flex-wrap justify-center space-y-4 md:space-y-0 md:space-x-6 md:my-4">
-      {plans.map((plan, index) => (
-        <div className="w-full sm:w-full md:w-1/3 px-4" key={index}>
-          <PricingCard {...plan} />
+
+        {/* Toggle */}
+        <div className="inline-flex items-center bg-gray-200 rounded-full p-1">
+          <button
+            className={`px-3 py-1 rounded-full transition font-medium ${
+              !isYearly ? "bg-white text-black" : "text-gray-600"
+            }`}
+            onClick={() => setIsYearly(false)}
+          >
+            Monthly
+          </button>
+          <button
+            className={`px-3 py-1 rounded-full transition font-medium ${
+              isYearly ? "bg-black text-white" : "text-gray-600"
+            }`}
+            onClick={() => setIsYearly(true)}
+          >
+            Yearly
+          </button>
         </div>
-      ))}
-    </div>
       </div>
-    </>
+
+      {/* Pricing Cards */}
+      <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+        {plans.map((plan, index) => (
+          <div className="w-full md:w-1/3 flex" key={index}>
+            <PricingCard
+              plan={plan.plan}
+              price={isYearly ? plan.yearly : plan.monthly}
+              features={plan.features}
+              isHighlighted={plan.isHighlighted}
+              className="flex flex-col h-full w-full"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };

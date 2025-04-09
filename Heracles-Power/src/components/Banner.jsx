@@ -31,10 +31,9 @@ export const Banner = () => {
               backSpeed={50}
             />
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-              laudantium recusandae dolor laborum autem minima labore molestiae
-              explicabo blanditiis qui, odit ratione dolores quia omnis, aut
-              facilis impedit. Praesentium, architecto.
+            Welcome to Hercules Power – your all-in-one fitness and nutrition companion.
+            Track your daily calorie intake, calculate your BMI, and follow personalized workouts.
+            Whether at home, gym, or yoga studio. we help you stay fit, strong, and healthy!
             </p>
             
             <Link to="/bmi" className="bg-custom-black px-3 py-2 rounded-md text-white w-28 ">Get Started</Link>

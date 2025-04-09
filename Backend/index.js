@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
+const reviewsRouter = require('./Routes/reviewsRouter');
 
 const authrouter = require('./Routes/Authrouter');
 
@@ -25,6 +26,8 @@ mongoose
 
 // Routes
 app.use('/auth', authrouter);
+// review routes
+app.use('/api/reviews', reviewsRouter);
 
 // Test Route
 app.get('/ping', (req, res) => {

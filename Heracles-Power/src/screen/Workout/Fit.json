@@ -1,0 +1,67 @@
+{
+   "Gym": {
+     "Upper Body": [
+       { "name": "Bench Press", "gif": "https://i.pinimg.com/originals/f4/72/94/f47294c0af7d4dc0e55b83a6ce56167b.gif" },
+       { "name": "Pull-ups", "gif": "../../../public/Gif/Pull-ups.gif" },
+       { "name":"Overhead press", "gif":"../../../public/Gif/overheadpress.gif"},
+       { "name":"Bicep curl", "gif":"../../../public/Gif/bicepscurl.gif"},
+       { "name":"Incline dumbbell press", "gif":"../../../public/Gif/Dumbellrow.gif"},
+       { "name":"Dumbbell row", "gif":"../../../public/Gif/Dumbellrow.gif"},
+       { "name":"Lateral raises", "gif":"../../../public/Gif/lateralrasing.gif"},
+       { "name":"Lying triceps extension", "gif":"../../../public/Gif/Lying Triceps.gif"},
+       {"name":"Pull-down","gif":"https://media1.tenor.com/m/PVR9ra9tAwcAAAAC/pulley-pegada-aberta.gif"},
+       {"name":"The dip","gif":"../../../public/Gif/TheDip.gif"}
+     ],
+     "Legs": [
+       { "name": "Squats", "gif": "../../../public/Gif/Squats.gif" },
+       { "name": "Leg Press", "gif": "../../../public/Gif/legpress.gif" },
+       { "name": "Lunges", "gif": "https://media.tenor.com/wTulE6li6AEAAAAM/afundo-com-halteres.gif" },
+       { "name": "Dumbbell squats", "gif": "../../../public/Gif/DumbbellSquat.gif" },
+       { "name": "High knee Lunges", "gif": "../../../public/Gif/highkneelunges.gif" },
+       { "name": "Dumbbell walking Lunges", "gif": "../../../public/Gif/walkinglunges.gif" },
+       { "name": "leg curl", "gif": "../../../public/Gif/walkinglunges.gif" },
+       {"name":"pistol Squat", "gif":"../../../public/Gif/pistolsquats.gif"},
+       { "name": "Squats Machine" , "gif": "https://burnfit.io/wp-content/uploads/2023/11/SM_SQT.gif" },
+       { "name": "Barbell sumo Squats", "gif": "https://media.tenor.com/pdMmsiutWkcAAAAM/gym.gif" },
+       { "name": "Barbell Squats", "gif": "../../../public/Gif/walkinglunges.gif" },
+       { "name": "seated leg curl", "gif": "../../../public/Gif/walkinglunges.gif" },
+       { "name": "leg extension", "gif": "../../../public/Gif/walkinglunges.gif" },
+       { "name": "Deadlifts", "gif": "https://www.kettlebellkings.com/cdn/shop/articles/barbell-deadlift-movement.gif?v=1692228918" }
+     ],
+     "Core": [
+       { "name": "Crunches", "gif": "https://burnfit.io/wp-content/uploads/2023/11/CRUNCH.gif" },
+       { "name": "side plank", "gif": "https://burnfit.io/wp-content/uploads/2023/11/SIDE_PLANK.gif" },
+       { "name": "Plank", "gif": "https://burnfit.io/wp-content/uploads/2023/11/PLANK.gif" },
+       { "name": "Archer Push Up", "gif": "https://burnfit.io/wp-content/uploads/2023/11/ARCHER_PUSH_UP.gif" }
+     ],
+     "ABS": [
+      { "name": "sit up", "gif": "https://burnfit.io/wp-content/uploads/2023/11/SIT_UP.gif" },
+      { "name": "Russian twist", "gif": "https://burnfit.io/wp-content/uploads/2023/11/RUS_TWIST.gif" },
+      { "name": "V-up", "gif": "https://burnfit.io/wp-content/uploads/2023/11/V-UP.gif" },
+      { "name": "Leg Raise", "gif": "https://burnfit.io/wp-content/uploads/2023/11/LEG_RAISE.gif" }
+    ]
+   },
+   "Yoga": {
+     "Balance & Flexibility": [
+       { "name": "Tree Pose", "gif": "https://cdn.pixabay.com/animation/2024/07/26/09/54/09-54-06-111_512.gif" },
+       { "name": "Warrior Pose", "gif": "https://cdn.dribbble.com/userupload/22815558/file/original-d524ba104f22cbdf653d98f890692ab0.gif" }
+     ],
+     "Relaxation & Breathing": [
+       { "name": "Child’s Pose", "gif": "child_pose.gif" },
+       { "name": "Savasana", "gif": "savasana.gif" }
+     ]
+   },
+  
+   "Cardio": [
+     { "name": "Jump Rope", "gif": "https://burnfit.io/wp-content/uploads/2023/11/JUMP_ROPE.gif" },
+     { "name": "Running", "gif": "https://burnfit.io/wp-content/uploads/2023/11/RUNNING.gif" },
+     { "name": "Treadmill", "gif": "https://burnfit.io/wp-content/uploads/2023/11/TREADMIL.gif" },
+     { "name": "cycle", "gif": "https://burnfit.io/wp-content/uploads/2023/11/CYCLE.gif" },
+     { "name": "stepmill machine", "gif": "https://burnfit.io/wp-content/uploads/2023/11/STEPMILL_MAC.gif" }
+   ],
+   "Calisthenics": [
+     { "name": "Muscle-up", "gif": "muscle_up.gif" },
+     { "name": "Dips", "gif": "https://burnfit.io/wp-content/uploads/2023/11/WEI_DIPS.gif" }
+   ]
+ }
+ 

@@ -15,7 +15,9 @@ export const TrainerSection = () => {
         {/* Upper section with title and description */}
         <div className="flex flex-col justify-center items-center md:px-20 gap-4 px-4">
           <h1 className="md:text-4xl text-2xl font-bold">Meet Our Trainers</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ratione aperiam delectus quo vel provident corrupti sapiente consequuntur vitae. Doloremque atque laboriosam iusto repudiandae adipisci pariatur, corporis nemo ab accusantium!</p>
+          <p>Our certified trainers bring years of experience in fitness and nutrition, offering personalized 
+            guidance to help you achieve your health goals. 
+            They are dedicated to supporting your journey every step of the way.</p>
         </div>
 
         {/* Second section holding card components for medium devices */}

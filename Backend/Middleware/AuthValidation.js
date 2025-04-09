@@ -5,7 +5,7 @@ const signupValidation = (req, res, next) => {
         name: joi.string().min(3).required(),
         lastname: joi.string().min(3).required(),
         phone: joi.string().length(10).pattern(/^\d+$/).required(),
-        dob: joi.date().max('now').greater(new Date(Date.now() - 1000 * 60 * 60 * 24 * 365.25 * 13)).required(),
+        dob: joi.date().required(),
         gender: joi.string().valid('male', 'female').required(),
         email: joi.string().email().required(),
         password: joi.string().min(6).required(),

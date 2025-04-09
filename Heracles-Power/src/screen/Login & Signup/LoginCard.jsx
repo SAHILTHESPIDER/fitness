@@ -88,7 +88,7 @@ export const LoginCard = () => {
 
               <p>
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-blue-600">
+                <Link to="/signup" className="text-blue-600 ">
                   Signup
                 </Link>
               </p>
@@ -96,7 +96,8 @@ export const LoginCard = () => {
           )}
 
          </div>
-
+          {/* Forget password */}
+          
          
              
 

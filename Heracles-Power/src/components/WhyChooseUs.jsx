@@ -16,9 +16,7 @@ export const WhyChooseUs = () => {
         <div className="flex flex-col justify-center items-center py-6 gap-2 px-4 ">
           <h1 className="md:text-4xl text-2xl font-bold">Why choose Us</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-            adipisci optio sed deserunt accusantium expedita perferendis quasi
-            fuga dolorum. Fuga.
+          Empowering your fitness journey with personalized nutrition, workouts, and real results – all in one place.
           </p>
         </div>
 
@@ -31,8 +29,8 @@ export const WhyChooseUs = () => {
               <div>
                 <h1 className="font-bold md:text-xl">Trainer Qualifications</h1>
                 <p className="text-[.8rem]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolor, voluptates?
+                Our plans are crafted by certified fitness professionals with expertise in exercise science and nutrition, 
+                ensuring safe and effective training for all fitness levels.
                 </p>
               </div>
             </div>
@@ -41,8 +39,8 @@ export const WhyChooseUs = () => {
               <div>
                 <h1 className="font-bold md:text-xl">Facility Amenities</h1>
                 <p className="text-[.8rem]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolor, voluptates?
+                We offer a wide range of amenities including modern workout routines, personalized meal tracking, BMI analysis,
+                 and an extensive exercise library—all accessible anytime, anywhere through our web platform.
                 </p>
               </div>
             </div>
@@ -51,8 +49,8 @@ export const WhyChooseUs = () => {
               <div>
                 <h1 className="font-bold md:text-xl">Member Cost</h1>
                 <p className="text-[.8rem]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolor, voluptates?
+                Our platform is completely free to use, allowing users to access all 
+                fitness and nutrition features without any subscription or hidden charges.
                 </p>
               </div>
             </div>
@@ -61,8 +59,8 @@ export const WhyChooseUs = () => {
               <div>
                 <h1 className="font-bold md:text-xl">Operating Hours</h1>
                 <p className="text-[.8rem]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolor, voluptates?
+                Our web application is accessible 24/7, so you can track your fitness, 
+                nutrition, and workouts anytime, anywhere at your convenience.
                 </p>
               </div>
             </div>

@@ -29,13 +29,13 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`navbar h-12 top-0 z-40 w-screen shadow fixed ${
+      className={`navbar h-16 top-0 z-40 w-screen shadow fixed ${
         sticky ? "shadow-md bg-base-300 duration-300 transition-all ease-in-out" : ""
       } ${isAuthScreen ? "bg-white bg-opacity-20" : ""}`}
     >
       <div className="navbar-start">
         <Link className={`btn btn-ghost text-xl ${isAuthScreen ? "text-white" : ""}`} to="/">
-          Fitness
+          Hercules Power
         </Link>
       </div>
 
@@ -61,12 +61,12 @@ export const Navbar = () => {
           {/* Profile Section - Always Visible */}
           <div className="relative flex items-center space-x-2">
             <img
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-8 rounded-full"
               src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
               alt="User Avatar"
             />
             <div className="text-gray-700">
-              <p className="text-sm font-semibold text-blue-600">{user.name}</p>
+              <p className="text-sm font-semibold  text-blue-600">{user.name}</p>
               <Link to="/profile" className="text-blue-500 text-xs">View Profile</Link>
             </div>
           </div>
