@@ -15,6 +15,7 @@ export const Home = () => {
     <JoinToday/>
     <Reviews/>
     <Footer/>
+    
     </>
   )
 }

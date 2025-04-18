@@ -1,10 +1,7 @@
 import React from "react";
 import model from "../assets/model.png";
 import { ReactTyped } from "react-typed";
-import { FaGoogle, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaSquareFacebook } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
 export const Banner = () => {
   return (
     <>
@@ -20,7 +17,6 @@ export const Banner = () => {
               alt="Model"
             />
           </div>
-
           {/* Left sided information div */}
           <div className="md:w-1/2 h-1/2 md:h-full flex flex-col md:flex-col md:justify-center px-5 gap-5 pt-5  ">
             <ReactTyped
@@ -35,7 +31,6 @@ export const Banner = () => {
             Track your daily calorie intake, calculate your BMI, and follow personalized workouts.
             Whether at home, gym, or yoga studio. we help you stay fit, strong, and healthy!
             </p>
-            
             <Link to="/bmi" className="bg-custom-black px-3 py-2 rounded-md text-white w-28 ">Get Started</Link>
            
           </div>

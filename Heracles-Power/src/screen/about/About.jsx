@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white px-4 py-10">
       {/* Section: About Title */}
-      <div className="text-center mb-10">
+      <div className="text-center mt-10">
         <h1 className="text-4xl font-bold font-serif">About Us</h1>
 
         {/* Star Divider */}
@@ -21,6 +21,7 @@ export default function About() {
           innovative, user-friendly solutions across various sectors.
         </p>
       </div>
+
 
       {/* Section: Our Team */}
       <div className="text-center mb-12">

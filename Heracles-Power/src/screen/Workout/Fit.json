@@ -1,7 +1,7 @@
 {
    "Gym": {
      "Upper Body": [
-       { "name": "Bench Press", "gif": "https://i.pinimg.com/originals/f4/72/94/f47294c0af7d4dc0e55b83a6ce56167b.gif" },
+       { "name": "Bench Press", "gif": "https://media1.tenor.com/m/kpJH4zjuPF8AAAAC/supino.gif" },
        { "name": "Pull-ups", "gif": "../../../public/Gif/Pull-ups.gif" },
        { "name":"Overhead press", "gif":"../../../public/Gif/overheadpress.gif"},
        { "name":"Bicep curl", "gif":"../../../public/Gif/bicepscurl.gif"},
@@ -43,12 +43,14 @@
    },
    "Yoga": {
      "Balance & Flexibility": [
-       { "name": "Tree Pose", "gif": "https://cdn.pixabay.com/animation/2024/07/26/09/54/09-54-06-111_512.gif" },
-       { "name": "Warrior Pose", "gif": "https://cdn.dribbble.com/userupload/22815558/file/original-d524ba104f22cbdf653d98f890692ab0.gif" }
+       { "name": "Tree Pose", "gif": "../../../public/treepose.png" },
+       { "name": "cat-cow pose", "gif": "https://homeworkouts.org/wp-content/uploads/anim-cat-cow-pose.gif" },
+       { "name": "Warrior Pose", "gif": "../../../public/warriorpose.png" },
+       { "name": "Warrior ", "gif": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw0X5O2dLKLVimbJ54fiBoXsdOg5jfh1B7Bg&s" }
      ],
      "Relaxation & Breathing": [
-       { "name": "Child’s Pose", "gif": "child_pose.gif" },
-       { "name": "Savasana", "gif": "savasana.gif" }
+       { "name": "Child’s Pose", "gif": "https://homeworkouts.org/wp-content/uploads/anim-child-pose.gif" },
+       { "name": "Savasana", "gif": "https://homeworkouts.org/wp-content/uploads/anim-sphinx-pose.gif" }
      ]
    },
   
@@ -60,7 +62,7 @@
      { "name": "stepmill machine", "gif": "https://burnfit.io/wp-content/uploads/2023/11/STEPMILL_MAC.gif" }
    ],
    "Calisthenics": [
-     { "name": "Muscle-up", "gif": "muscle_up.gif" },
+     { "name": "Muscle-up", "gif": "https://www.inspireusafoundation.org/wp-content/uploads/2022/09/muscle-ups-movement.gif" },
      { "name": "Dips", "gif": "https://burnfit.io/wp-content/uploads/2023/11/WEI_DIPS.gif" }
    ]
  }

@@ -9,7 +9,7 @@ export const JoinToday = () => {
     {
       plan: "Beginner Plan",
       monthly: "05",
-      yearly: "50",
+      yearly: "5",
       features: [
         "Includes basic gym or workout access",
         "Access to standard features (e.g., limited equipment, beginner workouts)"
@@ -63,7 +63,11 @@ export const JoinToday = () => {
       {/* Pricing Cards */}
       <div className="flex flex-wrap justify-center gap-6 md:gap-8">
         {plans.map((plan, index) => (
-          <div className="w-full md:w-1/3 flex" key={index}>
+          <div className="w-full md:w-1/3 flex" key={index}
+          onClick={() =>
+            localStorage.setItem("selectedAmount", isYearly ? plan.yearly : plan.monthly)
+          }
+          >
             <PricingCard
               plan={plan.plan}
               price={isYearly ? plan.yearly : plan.monthly}

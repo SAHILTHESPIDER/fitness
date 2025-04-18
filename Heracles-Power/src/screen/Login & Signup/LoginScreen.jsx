@@ -11,6 +11,7 @@ export const LoginScreen = () => {
 
   // Check if the current route is the login screen
   const isLoginScreen = location.pathname === "/login";
+
   return (
     <div
       className="w-screen h-screen md:bg-cover  "
@@ -24,6 +25,8 @@ export const LoginScreen = () => {
         <SignupCard/>
 
     </div>
+    
+
     <div className={`${isLoginScreen?"hidden":"block"}`}>
         <Forget/>
 

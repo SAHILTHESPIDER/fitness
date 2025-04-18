@@ -14,8 +14,9 @@ export const Navbar = () => {
     }
   }, []);
 
-  const authPaths = ["/login", "/signup"];
+  const authPaths = ["/login", "/signup","/Pay"];
   const isAuthScreen = authPaths.includes(location.pathname);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +53,7 @@ export const Navbar = () => {
       {/* Hide "Join Now" when user is logged in */}
       {!user && (
         <div className={`navbar-end ${isAuthScreen ? "hidden" : ""}`}>
-          <Link to="/login" className="btn bg-black text-white">Join Now</Link>
+          <Link to="/login" className="btn bg-black text-white mr-[2%]">Join Now</Link>
         </div>
       )}
 

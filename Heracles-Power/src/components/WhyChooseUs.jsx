@@ -8,6 +8,7 @@ import trademill from "../assets/trademill.jpeg";
 import HealthyLife from "../assets/HealthyLife.jpg";
 
 export const WhyChooseUs = () => {
+  
   return (
     <>
       {/* main container div */}

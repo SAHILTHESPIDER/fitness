@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const PricingCard = ({ plan, price, features, isHighlighted, className }) => {
   return (
@@ -37,12 +38,12 @@ export const PricingCard = ({ plan, price, features, isHighlighted, className })
         ))}
       </ul>
 
-      <button
-        className={`w-full py-2 rounded-full font-semibold transition 
-        ${isHighlighted ? "bg-yellow-400 text-black" : "bg-black text-white"}`}
-      >
-        Choose Plan
-      </button>
+      
+        <Link to="/Pay" className={`w-full px-2 py-2 rounded-full font-semibold transition 
+        ${isHighlighted ? "bg-yellow-400 text-black" : "bg-black text-white"}`} >
+          Choose Plan
+        </Link>
+        
     </div>
   );
 };

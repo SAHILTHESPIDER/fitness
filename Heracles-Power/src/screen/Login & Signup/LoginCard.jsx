@@ -9,15 +9,12 @@ export const LoginCard = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [forgotPassword, setForgotPassword] = useState(false);
 
-
   const notify = (message, type = "error") => toast[type](message);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle login submit
   const handleSubmit = async () => {
     if (!formData.email || !formData.password) {
       notify("Email and Password are required!");
@@ -25,10 +22,19 @@ export const LoginCard = () => {
     }
 
     try {
+      console.log("Sending login data:", formData); // Debug
+
       const response = await axios.post(
         "http://localhost:8080/auth/login",
-        formData,
-        { headers: { "Content-Type": "application/json" } }
+        {
+          email: formData.email,
+          password: formData.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       const userData = response.data.user;
@@ -37,15 +43,14 @@ export const LoginCard = () => {
 
       setTimeout(() => navigate("/profile"), 1000);
     } catch (error) {
+      console.error("Login error:", error.response); // Debug
       notify(error.response?.data?.message || "Login failed!");
     }
   };
 
-  
-
-
   return (
     <>
+      <ToastContainer />
       <div className="w-screen h-screen flex md:justify-end justify-center items-center">
         <div className="bg-white bg-opacity-80 md:mx-20 py-7 flex flex-col gap-2 px-7 rounded-2xl">
           <div className="w-full flex justify-center items-center">
@@ -75,34 +80,29 @@ export const LoginCard = () => {
                 onChange={handleChange}
               />
 
-              <span className="text-xs text-blue-600 cursor-pointer" >
+              <span
+                className="text-xs text-blue-600 cursor-pointer"
+                onClick={() => setForgotPassword(true)}
+              >
                 Forgot Password?
               </span>
 
               <button
-                className="bg-orange-600 rounded-md text-white block w-full py-1 shadow-sm shadow-orange-400"
+                className="bg-orange-600 rounded-md text-white block w-full py-1 shadow-sm shadow-orange-400 mt-2"
                 onClick={handleSubmit}
               >
                 Login
               </button>
 
-              <p>
+              <p className="text-sm mt-2">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-blue-600 ">
+                <Link to="/signup" className="text-blue-600">
                   Signup
                 </Link>
               </p>
             </>
           )}
-
-         </div>
-          {/* Forget password */}
-          
-         
-             
-
-         
-       
+        </div>
       </div>
     </>
   );
