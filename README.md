@@ -121,8 +121,9 @@ npm run dev          # Starts frontend at http://localhost:5173 (Vite)
 Open a new terminal tab/window:
 
 ```bash
-cd server
-npm install          # Install backend dependencies
+cd backend 
+npm install  #dependencies backend
+npm i mongoose # mongodb
 npm start            # Starts backend server at http://localhost:5000
 ```
 
