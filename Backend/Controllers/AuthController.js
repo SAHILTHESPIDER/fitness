@@ -1,5 +1,5 @@
 const UserModel = require('../Models/User');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Function to calculate age from DOB
