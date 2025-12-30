@@ -24,10 +24,10 @@ export default function About() {
 
 
       {/* Section: Our Team */}
-      <div className="text-center mb-12">
+     {/* <div className="text-center mb-12">
         <h2 className="text-3xl font-semibold font-serif">Our Team</h2>
 
-        <div className="mt-8 flex justify-center">
+       { <div className="mt-8 flex justify-center">
           <div className="flex flex-col items-center space-y-3">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-md">
               <img
@@ -39,8 +39,8 @@ export default function About() {
             <h3 className="text-xl font-medium">Sahil Gupta</h3>
             <p className="text-gray-500">Full Stack Developer</p>
           </div>
-        </div>
-      </div>
+        </div>}
+  </div> */}
     </div>
   );
 }

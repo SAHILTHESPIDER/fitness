@@ -9,7 +9,7 @@ export const JoinToday = () => {
     {
       plan: "Beginner Plan",
       monthly: "05",
-      yearly: "5",
+      yearly: "50",
       features: [
         "Includes basic gym or workout access",
         "Access to standard features (e.g., limited equipment, beginner workouts)"

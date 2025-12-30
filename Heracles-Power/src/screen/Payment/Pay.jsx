@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+
+
 export default function Pay() {
 const[Activetab,SetActivetab]=useState('card');
 const [amount, setAmount] = useState("0.00");
+
 
   useEffect(() => {
     const storedAmount = localStorage.getItem("selectedAmount");
@@ -234,9 +237,13 @@ const [amount, setAmount] = useState("0.00");
         </div>
     
 <div className='mt-8 rounded-lg flex  justify-end w-[80%]'>
-  <button className='bg-blue-500 p-5 text-white px-20 py-2 rounded-md'>
+  <button className='bg-blue-500 p-5 text-white px-20 py-2 rounded-md'
+   
+     >
     Submit
+    
   </button>
+  
 </div>
 
 

@@ -1,7 +1,7 @@
 {
    "Gym": {
      "Upper Body": [
-       { "name": "Bench Press", "gif": "https://media1.tenor.com/m/kpJH4zjuPF8AAAAC/supino.gif" },
+       { "name": "Bench Press", "gif": "../../../public/Gif/benchpress.gif" },
        { "name": "Pull-ups", "gif": "../../../public/Gif/Pull-ups.gif" },
        { "name":"Overhead press", "gif":"../../../public/Gif/overheadpress.gif"},
        { "name":"Bicep curl", "gif":"../../../public/Gif/bicepscurl.gif"},
@@ -9,7 +9,7 @@
        { "name":"Dumbbell row", "gif":"../../../public/Gif/Dumbellrow.gif"},
        { "name":"Lateral raises", "gif":"../../../public/Gif/lateralrasing.gif"},
        { "name":"Lying triceps extension", "gif":"../../../public/Gif/Lying Triceps.gif"},
-       {"name":"Pull-down","gif":"https://media1.tenor.com/m/PVR9ra9tAwcAAAAC/pulley-pegada-aberta.gif"},
+       {"name":"Pull-down","gif":"../../../public/Gif/pulldown.gif"},
        {"name":"The dip","gif":"../../../public/Gif/TheDip.gif"}
      ],
      "Legs": [
