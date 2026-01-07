@@ -1,39 +1,63 @@
-import React, { useState, useRef } from "react";
-import foodData from "./food.json";
+import React, { useState, useRef, useEffect } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 
 export default function Food() {
+  const [foodData, setFoodData] = useState(null);
   const [showCheckbox, setCheckbox] = useState(false);
   const [filterType, setFilterType] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredItems, setFilteredItems] = useState([
-    ...foodData.categories.food.veg,
-    ...foodData.categories.food.nonveg,
-    ...(foodData.categories.food.protein || []),
-  ]);
+  const [filteredItems, setFilteredItems] = useState([]);
   const [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const cartRef = useRef(null);
 
-  const proteinIds = foodData.categories.food.protein?.map((item) => item.id) || [];
+  // ✅ Load food data safely from public folder
+  useEffect(() => {
+    fetch("/Food.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load Food.json");
+        return res.json();
+      })
+      .then((data) => {
+        setFoodData(data);
+        setFilteredItems([
+          ...data.categories.food.veg,
+          ...data.categories.food.nonveg,
+          ...(data.categories.food.protein || []),
+        ]);
+      })
+      .catch((err) => {
+        console.error("Error loading food data:", err);
+      });
+  }, []);
+
+  // ⏳ Loading guard (VERY IMPORTANT)
+  if (!foodData) {
+    return <div className="mt-20 text-center">Loading food data...</div>;
+  }
+
+  const proteinIds =
+    foodData.categories.food.protein?.map((item) => item.id) || [];
 
   const handleFilterToggle = () => {
     setCheckbox(!showCheckbox);
   };
 
+  const getBaseItems = () => {
+    if (filterType === "veg") return foodData.categories.food.veg;
+    if (filterType === "nonveg") return foodData.categories.food.nonveg;
+    if (filterType === "protein") return foodData.categories.food.protein || [];
+    return [
+      ...foodData.categories.food.veg,
+      ...foodData.categories.food.nonveg,
+      ...(foodData.categories.food.protein || []),
+    ];
+  };
+
   const handleFilter = (type) => {
     setFilterType(type);
-    let items = [];
-    if (type === "veg") items = foodData.categories.food.veg;
-    else if (type === "nonveg") items = foodData.categories.food.nonveg;
-    else if (type === "protein") items = foodData.categories.food.protein;
-    else
-      items = [
-        ...foodData.categories.food.veg,
-        ...foodData.categories.food.nonveg,
-        ...(foodData.categories.food.protein || []),
-      ];
+    let items = getBaseItems();
 
     if (searchQuery) {
       items = items.filter((item) =>
@@ -46,17 +70,8 @@ export default function Food() {
   const handleSearch = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    let items = [];
-    if (filterType === "veg") items = foodData.categories.food.veg;
-    else if (filterType === "nonveg") items = foodData.categories.food.nonveg;
-    else if (filterType === "protein") items = foodData.categories.food.protein;
-    else
-      items = [
-        ...foodData.categories.food.veg,
-        ...foodData.categories.food.nonveg,
-        ...(foodData.categories.food.protein || []),
-      ];
 
+    let items = getBaseItems();
     const filtered = items.filter((item) =>
       item.name.toLowerCase().includes(query.toLowerCase())
     );
@@ -64,14 +79,14 @@ export default function Food() {
   };
 
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prev) => [...prev, item]);
     setTimeout(() => {
       cartRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
   const removeFromCart = (index) => {
-    setCart((prevCart) => prevCart.filter((_, i) => i !== index));
+    setCart((prev) => prev.filter((_, i) => i !== index));
   };
 
   const calculateTotalCalories = () =>
@@ -79,7 +94,7 @@ export default function Food() {
 
   return (
     <div className="p-4 pb-16 relative">
-      {/* Filter and Search Section */}
+      {/* Filter & Search */}
       <div className="flex flex-col md:flex-row md:justify-end items-center gap-4 mb-4 mt-16">
         <input
           type="text"
@@ -91,6 +106,7 @@ export default function Food() {
         <button className="btn" onClick={handleFilterToggle}>
           Filter
         </button>
+
         {showCheckbox && (
           <div className="flex flex-wrap gap-4">
             {["veg", "nonveg", "protein", "all"].map((type) => (
@@ -99,8 +115,8 @@ export default function Food() {
                   type="radio"
                   name="filter"
                   className="mr-2"
-                  onChange={() => handleFilter(type)}
                   checked={filterType === type}
+                  onChange={() => handleFilter(type)}
                 />
                 {type.charAt(0).toUpperCase() + type.slice(1)}
               </label>
@@ -109,7 +125,7 @@ export default function Food() {
         )}
       </div>
 
-      {/* Main Content Layout */}
+      {/* Main Layout */}
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Food Cards */}
         <div className="lg:w-3/4 w-full">
@@ -126,12 +142,19 @@ export default function Food() {
                     className="rounded-xl h-40 w-full object-cover"
                   />
                 </figure>
+
                 <div className="card-body text-center">
-                  <h2 className="card-title font-bold text-base">{item.name}</h2>
+                  <h2 className="card-title font-bold text-base">
+                    {item.name}
+                  </h2>
                   <p className="text-sm">{item.calories} Calories</p>
+
                   {proteinIds.includes(item.id) && item.quantity && (
-                    <p className="text-xs text-gray-500">Quantity: {item.quantity}</p>
+                    <p className="text-xs text-gray-500">
+                      Quantity: {item.quantity}
+                    </p>
                   )}
+
                   <div className="card-actions justify-center mt-2">
                     <button
                       className="btn btn-primary btn-sm capitalize"
@@ -146,16 +169,15 @@ export default function Food() {
           </div>
         </div>
 
-        {/* Desktop Cart Summary */}
+        {/* Desktop Cart */}
         <div
           ref={cartRef}
           className="lg:w-1/4 w-full bg-gray-100 p-4 shadow-md rounded-lg hidden lg:block sticky top-20"
         >
-          <h2 className="text-xl font-bold mb-4 text-center lg:text-left">
-            Cart Summary
-          </h2>
+          <h2 className="text-xl font-bold mb-4">Cart Summary</h2>
+
           {cart.length === 0 ? (
-            <p className="text-gray-600 text-center">No items in the cart.</p>
+            <p className="text-gray-600">No items in the cart.</p>
           ) : (
             <>
               <ul className="mb-4 space-y-2 text-sm">
@@ -167,7 +189,7 @@ export default function Food() {
                     <span className="truncate">{item.name}</span>
                     <span>{item.calories} cal</span>
                     <button
-                      className="text-red-600 hover:text-red-800"
+                      className="text-red-600"
                       onClick={() => removeFromCart(index)}
                     >
                       <FaDeleteLeft />
@@ -175,7 +197,7 @@ export default function Food() {
                   </li>
                 ))}
               </ul>
-              <div className="text-lg font-semibold text-center lg:text-left">
+              <div className="text-lg font-semibold">
                 Total: {calculateTotalCalories()} cal
               </div>
             </>
@@ -183,19 +205,22 @@ export default function Food() {
         </div>
       </div>
 
-      {/* Sticky Mobile Cart Summary */}
+      {/* Mobile Cart Bar */}
       {cart.length > 0 && (
         <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-md border-t p-3 flex justify-between items-center z-50">
           <span className="font-medium text-sm">
             Total: {calculateTotalCalories()} cal
           </span>
-          <button className="btn btn-xs btn-primary" onClick={() => setShowModal(true)}>
+          <button
+            className="btn btn-xs btn-primary"
+            onClick={() => setShowModal(true)}
+          >
             View Cart
           </button>
         </div>
       )}
 
-      {/* Modal Cart View for Mobile */}
+      {/* Mobile Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-end">
           <div className="bg-white w-full max-h-[70vh] overflow-y-auto rounded-t-lg p-4">
@@ -208,32 +233,28 @@ export default function Food() {
                 &times;
               </button>
             </div>
-            {cart.length === 0 ? (
-              <p className="text-center text-gray-600">No items in the cart.</p>
-            ) : (
-              <>
-                <ul className="mb-4 space-y-2 text-sm">
-                  {cart.map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex justify-between items-center border-b pb-1"
-                    >
-                      <span className="truncate">{item.name}</span>
-                      <span>{item.calories} cal</span>
-                      <button
-                        className="text-red-600 hover:text-red-800"
-                        onClick={() => removeFromCart(index)}
-                      >
-                        <FaDeleteLeft />
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                <div className="text-center font-semibold">
-                  Total: {calculateTotalCalories()} cal
-                </div>
-              </>
-            )}
+
+            <ul className="space-y-2 text-sm">
+              {cart.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center border-b pb-1"
+                >
+                  <span>{item.name}</span>
+                  <span>{item.calories} cal</span>
+                  <button
+                    className="text-red-600"
+                    onClick={() => removeFromCart(index)}
+                  >
+                    <FaDeleteLeft />
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <div className="text-center font-semibold mt-2">
+              Total: {calculateTotalCalories()} cal
+            </div>
           </div>
         </div>
       )}
