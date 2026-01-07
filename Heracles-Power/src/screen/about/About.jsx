@@ -23,8 +23,8 @@ export default function About() {
       </div>
 
 
-      {/* Section: Our Team */}
-     {/* <div className="text-center mb-12">
+      {/*= Section: Our Team */}
+     <div className="text-center mb-12">
         <h2 className="text-3xl font-semibold font-serif">Our Team</h2>
 
        { <div className="mt-8 flex justify-center">
@@ -40,7 +40,7 @@ export default function About() {
             <p className="text-gray-500">Full Stack Developer</p>
           </div>
         </div>}
-  </div> */}
+  </div> 
     </div>
   );
 }
