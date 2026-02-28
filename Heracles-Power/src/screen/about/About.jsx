@@ -46,7 +46,7 @@ export default function About() {
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-md">
               <img
                 src="../../../public/Screens.jpg"
-                alt="Sahil Gupta"
+                alt="Abhishiek"
                 className="object-cover w-full h-full"
               />
             </div>
