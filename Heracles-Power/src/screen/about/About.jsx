@@ -26,7 +26,7 @@ export default function About() {
       {/*= Section: Our Team */}
      <div className="text-center mb-12">
         <h2 className="text-3xl font-semibold font-serif">Our Team</h2>
-      <div className="flex">
+      <div className="flex items-center justify-center">
        <div className="mt-8 flex justify-center">
           <div className="flex flex-col items-center space-y-3">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-md">
