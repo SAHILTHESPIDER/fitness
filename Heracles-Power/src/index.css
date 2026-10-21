@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-navy font-sans text-mist antialiased;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+.field {
+  @apply w-full min-w-0 rounded-xl border border-white/15 bg-ink px-3 py-2.5 text-sm text-mist outline-none focus:border-cyan;
+}
+
+.btn-lime {
+  @apply inline-flex min-h-11 items-center justify-center rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.btn-ghost {
+  @apply inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm text-mist transition hover:border-cyan disabled:opacity-50;
+}
+
+.card {
+  @apply min-w-0 rounded-3xl border border-white/10 bg-panel/80 p-5;
+}

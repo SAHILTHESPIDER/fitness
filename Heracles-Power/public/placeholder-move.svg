@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="Movement placeholder">
+  <rect width="640" height="400" fill="#10192b"/>
+  <circle cx="320" cy="168" r="46" fill="none" stroke="#5ce1ff" stroke-width="8"/>
+  <path d="M250 300c20-48 40-70 70-70s50 22 70 70" fill="none" stroke="#d6ff4a" stroke-width="8" stroke-linecap="round"/>
+  <text x="320" y="350" text-anchor="middle" fill="#e7f2ff" font-family="sans-serif" font-size="22">Demo coming</text>
+</svg>

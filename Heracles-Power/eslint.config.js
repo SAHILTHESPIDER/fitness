@@ -29,10 +29,18 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'react/prop-types': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['src/design/**/*.{js,jsx}'],
+    rules: {
+      'react/no-unknown-property': 'off',
+      'react/prop-types': 'off',
     },
   },
 ]

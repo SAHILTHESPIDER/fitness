@@ -1,35 +1,43 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const ReviewModel = require('../Models/reviewModel');
+const express = require("express");
+const Review = require("../Models/reviewModel");
+const User = require("../Models/User");
+const { requireAuth } = require("../lib/auth");
 
-// GET: Fetch all reviews
-router.get('/all', async (req, res) => {
-  try {
-    const reviews = await ReviewModel.find();
-    res.status(200).json(reviews);
-  } catch (err) {
-    console.error('Error fetching reviews:', err);
-    res.status(500).json({ error: 'Failed to fetch reviews' });
-  }
+const router = express.Router();
+
+function present(review) {
+  return {
+    id: review._id,
+    name: review.Name,
+    rating: review.Ratings,
+    feedback: review.Feedback,
+    createdAt: review.createdAt,
+  };
+}
+
+router.get("/all", async (req, res) => {
+  const reviews = await Review.find().sort({ createdAt: -1 }).limit(24);
+  return res.json({ success: true, reviews: reviews.map(present) });
 });
 
-// POST: Add a new review
-router.post('/add', async (req, res) => {
-  const { Name, Ratings, Feedback } = req.body;
-
-  if (!Name || !Ratings || !Feedback) {
-    return res.status(400).json({ error: 'All fields are required' });
+router.post("/add", requireAuth, async (req, res) => {
+  const rating = Number(req.body.rating ?? req.body.Ratings);
+  const feedback = String(req.body.feedback ?? req.body.Feedback ?? "").trim();
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+    return res.status(400).json({ success: false, message: "Pick a rating from 1 to 5." });
   }
-
-  try {
-    const newReview = new ReviewModel({ Name, Ratings, Feedback });
-    await newReview.save();
-    res.status(201).json({ message: 'Review added successfully', review: newReview });
-  } catch (err) {
-    console.error('Error adding review:', err);
-    res.status(500).json({ error: 'Failed to add review' });
+  if (feedback.length < 3 || feedback.length > 500) {
+    return res.status(400).json({ success: false, message: "Write a short review, between 3 and 500 characters." });
   }
+  const user = await User.findById(req.userId);
+  if (!user) return res.status(401).json({ success: false, message: "Please log in." });
+  const review = await Review.create({
+    Name: `${user.name} ${user.lastname}`.trim(),
+    Ratings: rating,
+    Feedback: feedback,
+    user: user._id,
+  });
+  return res.status(201).json({ success: true, review: present(review) });
 });
 
 module.exports = router;

@@ -1,216 +1,113 @@
-hello sahil
-Absolutely! Here’s your fully updated and polished `README.md` with a detailed and developer-friendly **Installation & Setup** section. This version includes precise commands, environment variable setup, and optional tools. Everything’s clear and ready for action! 💻🚀
+# Hercules Power
 
----
+Hercules Power is a fitness web app. The site is a React app in `Heracles-Power`. Accounts, logs, reviews, and the AI coach are an Express API in `Backend`. The database is MongoDB.
 
-```markdown
-# 🏋️‍♂️ Hercules Power – Fitness Web App 💪
+The free tools are the meal list, workout demos, and BMI calculator. An account saves meals, workouts, weight, water, and habits. Paid member plans are marked coming soon. The site does not collect card details.
 
-A full-featured **MERN stack fitness application** built to empower users in reaching their health goals. From personalized food tracking to categorized workout routines and a clean, responsive interface—**Hercules Power** is your ultimate fitness companion. 🏆
+## What you can do
 
----
+- Browse meals and filter them as veg, non-veg, or protein. The filter uses the button you just clicked.
+- Keep a food list in the browser, or log it to your account for today. You can copy yesterday.
+- Browse gym, yoga, cardio, calisthenics, and home exercises, with muscle, sets, and reps.
+- Calculate BMI. The gauge runs from underweight, to normal, to overweight, to obese.
+- Create an account, edit your profile, and see goal progress, BMI, today's calories, this week's workouts, and weight history.
+- Ask the coach for meals or a workout week. You confirm before anything is saved.
+- Leave a review while logged in. The name comes from the account.
+- Reset a password by email when SMTP is configured.
 
-## 🚀 Features
+## Run it locally
 
-### 🥗 Food & Nutrition
+You need Node.js 20 or newer.
 
-Stay in control of your diet with structured nutrition tracking:
-
-- ✅ Categorized food options (Veg & Non-Veg)
-- 📦 JSON-based storage including:
-  - Item name
-  - Calories
-  - Image
-  - Quantity/Recommended serving
-- 💪 Protein-rich filter (30+ high-protein items)
-- 🧩 Extendable to include other macros (carbs, fats, etc.)
-
----
-
-### 🧘‍♀️ Workout Routines
-
-Diverse workout options for every preference:
-
-- Categories:
-  - 🏋️ Gym
-  - 🧘 Yoga
-  - 🏠 Home
-  - 🏃 Cardio
-  - 🧗 Calisthenics
-- Stored in JSON format with:
-  - Exercise name
-  - 🔁 GIF for reference
-
----
-
-### 📊 User Dashboard
-
-Insight-driven tracking to keep you on point:
-
-- 🍽️ Log meals and workouts
-- 📉 Visualize:
-  - Daily calorie intake
-  - Protein consumption
-- 🧾 Summary cards for:
-  - Nutrition logs
-  - Workout routines
-
----
-
-## ⚙️ Tech Stack
-
-Built using the modern MERN stack:
-
-- **Frontend:** `React.js` + `Tailwind CSS` + `Vite ⚡`
-- **Backend:** `Node.js` + `Express.js`
-- **Database:** `MongoDB`
-- **Authentication:** *(Future integration planned)* `Firebase` / `Auth0`
-- **Responsive Design:** Optimized for both mobile and desktop 🖥️📱
-
----
-
-## 🗂️ Project Structure
+Frontend:
 
 ```bash
-Hercules-Power/
-│
-├── client/
-│   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   ├── Screen/             # Application views/pages
-│   │   ├── assets/            # Images, logos, GIFs
-│   │   └── data/              # JSON files for food & exercises
-│   ├── App.jsx
-│   └── index.js
-│
-├── server/
-│   ├── routes/                # API routes
-│   ├── controllers/           # Request handling logic
-│   ├── models/                # Mongoose schemas/models
-│   └── server.js              # Entry point for Express server
-│
-└── README.md
+cd Heracles-Power
+npm install
+npm run dev
 ```
 
----
+The site opens at http://localhost:5173. Copy `Heracles-Power/.env.example` to `Heracles-Power/.env` if you want to point at a different API. If `VITE_API_URL` is missing, local development calls http://localhost:8080.
 
-## ⚙️ Installation & Setup
-
-Follow these steps to run the project locally:
-
-### 📁 1. Clone the Repository
+API:
 
 ```bash
-git clone https://github.com/your-username/hercules-power.git
-cd hercules-power
+cd Backend
+npm install
 ```
 
----
-
-### 🖥️ 2. Setup Frontend
+Copy `Backend/.env.example` to `Backend/.env`, fill in `MONGO_CONN` and `JWT_SECRET`, then:
 
 ```bash
-cd client
-npm install          # Install dependencies
-npm run dev          # Starts frontend at http://localhost:5173 (Vite)
+npm start
 ```
 
----
+The API listens on port 8080. `GET /ping` and `GET /health` should answer. `npm test` checks the BMI and calorie maths.
 
-### 🔧 3. Setup Backend
+MongoDB has to be running before the API will start. The user collection is `usertests` (the model name is `Usertest`).
 
-Open a new terminal tab/window:
+## Environment variables
 
-```bash
-cd backend 
-npm install  #dependencies backend
-npm i mongoose # mongodb
-npm start            # Starts backend server at http://localhost:5000
-```
+Set these yourself. Do not commit real values. Do not put the OpenAI key in a variable that starts with `VITE_`. Vite would ship that key to every browser.
 
----
+### Frontend (`Heracles-Power/.env`)
 
-### 🌱 4. Environment Variables
+| Name | Purpose |
+| --- | --- |
+| `VITE_API_URL` | Public URL of the API, with no trailing slash. Local default is `http://localhost:8080`. |
 
-Create a `.env` file in the `server/` folder:
+### API (`Backend/.env`)
 
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-```
+| Name | Purpose |
+| --- | --- |
+| `PORT` | API port. Defaults to 8080. |
+| `MONGO_CONN` | MongoDB connection string. Required. |
+| `JWT_SECRET` | Long random string used to sign login tokens. Required. Tokens last 7 days. |
+| `CORS_ORIGINS` | Comma-separated site origins allowed to call the API. Defaults to `http://localhost:5173,https://herrcule-power.vercel.app`. |
+| `OPENAI_API_KEY` | Server-only key for meal and workout suggestions. Model is `gpt-4o-mini`. Leave it empty and the coach says it is offline. |
+| `SMTP_HOST` | Mail host for password reset. If host, user, or password is missing, forgot-password returns a clear "not set up" message and does not look up the email. |
+| `SMTP_PORT` | Usually 587. |
+| `SMTP_USER` | Mail account username. |
+| `SMTP_PASS` | Mail account password. |
+| `SMTP_FROM` | From address. Falls back to `SMTP_USER`. |
+| `APP_URL` | Public site URL used inside the reset link, such as `https://herrcule-power.vercel.app`. |
 
-🔒 **Make sure to replace `your_mongodb_connection_string`** with your actual MongoDB URI (e.g., from MongoDB Atlas).
+`GET /health` reports `{ ok, ai, smtp }` so you can see whether the key and the mailbox are visible to the server. It does not reveal the secrets.
 
----
+## Deploy checklist
 
-### 🛠️ 5. Optional Tools
+The live site and the API are separate. Both need a new deploy after this change. The API must be redeployed or login, logs, reviews, and the coach stay on the old routes.
 
-Here are some tools to enhance your development workflow:
+### Vercel (the website)
 
-- 🧪 **Postman** – Test and debug API endpoints
-- 🧭 **MongoDB Compass** – Visualize and manage your MongoDB collections
-- ⚡ **Vite Dev Tools** – Inspect and optimize frontend performance
+- Root directory: `Heracles-Power`
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable, set before the build: `VITE_API_URL` = the public Render URL, for example `https://fitness-e905.onrender.com`
+- Vite bakes `VITE_API_URL` into the JavaScript at build time. If you add it later, build again.
+- `Heracles-Power/vercel.json` sends unknown paths such as `/diet` and `/login` back to `index.html`, so a refresh does not 404. The file at the repository root is not the one Vercel uses when the project root is `Heracles-Power`.
 
----
+### Render (the API)
 
-## 🧠 Future Enhancements
+- Root directory: `Backend`
+- Start command: `npm start` (that runs `node index.js`)
+- Set `MONGO_CONN`, `JWT_SECRET`, and `CORS_ORIGINS`
+- `CORS_ORIGINS` must include the exact site origin, including `https://`
+- Set `OPENAI_API_KEY` only here, never on Vercel
+- Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, and `APP_URL` if password reset should send mail
+- Redeploy the API after saving the variables
 
-- 🥗 Personalized diet plans based on goals (weight loss, muscle gain)
-- ⌚ Integration with wearable fitness devices
-- 📈 User progress analytics (charts & graphs)
-- 💬 Daily motivation quotes or tips via external API
-- 🤖 AI-powered meal and workout suggestion engine
+Then redeploy the Vercel site so the new pages and the API URL are in the bundle.
 
----
+## Calorie target
 
-## 🧑‍💻 Author
+The target uses Mifflin-St Jeor and a lightly active day (BMR × 1.375). If the current weight is more than 1 kg above the goal, it subtracts 400 kcal. If the goal is more than 1 kg above the current weight, it adds 300 kcal. The result never goes under 1200 kcal. Meal calories come from `Food.json`. The coach is not allowed to invent them.
 
-**Sahil Gupta**  
-👨‍🎓 BCA Student  
-🚀 Aspiring Full-Stack Developer  
-🌐 Passionate about Fitness, Web Development & the MERN stack  
+## Coach safety line
 
----
+Every coach screen includes this line: "This is general fitness guidance, not medical advice. Stop and talk to a professional if you feel pain or have an injury."
 
-## 🤝 Contributing
+## Author
 
-Contributions are welcome and appreciated! 🙌  
-Feel free to fork the repo, open an issue, or submit a pull request.
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 📬 Contact
-
-Have suggestions or want to collaborate?  
-Reach out via [sahilgupta9594@gmail.com] or open an issue here on GitHub!
-
----
-```![Screenshot 2025-04-22 172542](https://github.com/user-attachments/assets/4e687229-932f-47e2-b6a7-4afe49f0a041)
-
-
-Let me know if you'd like to add:
-- ✅ A live demo link![Screenshot 2025-04-16 111915](http![Screenshot 2025-04-16 110913](https://github.com/user-attachments/assets/d128d7f2-42e7-4a39-8548-e02984807927)
-s://github.com/user-attachments/assets/4ff7d9e3-6c12-4e86-8199-7ebcaab94a04)
-![Screenshot 2025-04-16 111216](https://github.com/user-attachments/assets/574d112e-9f7e-4ef7-9951-2ace590ee43a)
-![Screenshot 2025-04-16 111108](https://github.com/user-attachments/assets/280c1f81-610d-417f-a056-e892c89cb0ec)
-![Screenshot 2025-04-16 110952](https://github.com/user-attachments/assets/a6d23e92-7650-48cf-83dc-2ad9c009199e)
-
-- 📸 Screenshots/GIFs of the app![Scr![Screenshot 2025-04-16 111318](https://github.com/user-attachments/assets/25530116-707a-43c5-ac48-9fae58fb2513)
-eenshot 2025-04-22 173328](https://github.com/user-attachments/assets/7bdf8636-6097-4b56-b4d4-67d2aca1c5c5)
-![Screenshot 2025-04-22 173034](https://github.com/user-attachments/assets/e5ab4120-3d18-49d0-bf42-6af54707bdaf)
-![Screenshot 2025-04-16 112657](https://github.com/user-attachments/assets/a118a7b2-0a68-4bb7-8242-c2903c1a6b9c)
-
-- 🧪 API route documentation![Screenshot 2025-04-16 112736](http![Screenshot 2025-04-16 111614](https://github.com/user-attachments/assets/d2b26a2d-960f-4609-9fb0-c599d8c3272f)
-s://github.com/user-attachments/assets/c3defcf6-2e5c-4217-a91a-c12127183b24)
-![Screenshot 2025-04-16 112842](https://github.com/user-attachments/assets/13b489fb-90be-4bf5-8daa-b5fbea5d12a5)
-
-
-
-
-Happy coding! 💥
+Sahil Gupta — sahilgupta9594@gmail.com
