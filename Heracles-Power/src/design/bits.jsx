@@ -1,37 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Lenis from "lenis";
-import { prefersReducedMotion } from "./webgl";
-
-export function useLenis() {
-  useEffect(() => {
-    if (prefersReducedMotion()) return undefined;
-    if (window.matchMedia("(max-width: 760px)").matches) return undefined;
-    const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
-    let frame = 0;
-    const loop = (time) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(loop);
-    };
-    frame = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
-}
-
-export function useFonts() {
-  useEffect(() => {
-    const id = "design-cd-fonts";
-    if (document.getElementById(id)) return;
-    const link = document.createElement("link");
-    link.id = id;
-    link.rel = "stylesheet";
-    link.href =
-      "https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Outfit:wght@400;500;600&family=Syne:wght@700;800&family=Teko:wght@500;600&display=swap";
-    document.head.appendChild(link);
-  }, []);
-}
 
 export function Counter({ to, suffix = "" }) {
   const ref = useRef(null);

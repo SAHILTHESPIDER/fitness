@@ -177,10 +177,10 @@ export default function StoryHero({
           <div className="absolute inset-0" style={{ background: clear }} />
         )}
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-[#070b14]/50" />
 
-        <div className="absolute inset-0 flex items-end px-5 pb-16 sm:items-center sm:px-10 sm:pb-0">
-          <div className="relative h-52 w-full max-w-3xl sm:h-64" style={font}>
+        <div className="absolute inset-0 flex items-end px-5 pb-10 sm:items-center sm:px-10 sm:pb-0">
+          <div className="relative h-64 w-full max-w-3xl sm:h-72" style={font}>
             {beats.map((beat, index) => (
               <div
                 key={beat.title}
