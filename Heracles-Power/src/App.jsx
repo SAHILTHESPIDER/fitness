@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom"
 
 const DesignA = lazy(() => import("./design/DesignA"))
 const DesignB = lazy(() => import("./design/DesignB"))
+const DesignC = lazy(() => import("./design/DesignC"))
+const DesignD = lazy(() => import("./design/DesignD"))
 import { Home } from "./screen/Home/Home"
 import { LoginScreen } from "./screen/Login & Signup/LoginScreen"
 import Profile from "./components/Profile"
@@ -22,6 +24,8 @@ function App() {
     <Routes>
     <Route path="/design-a" element={<Suspense fallback={<div className="grid min-h-screen place-items-center bg-neutral-950 text-white">Loading preview…</div>}><DesignA /></Suspense>} />
     <Route path="/design-b" element={<Suspense fallback={<div className="grid min-h-screen place-items-center bg-[#f4f1ea] text-black">Loading preview…</div>}><DesignB /></Suspense>} />
+    <Route path="/design-c" element={<Suspense fallback={<div className="grid min-h-screen place-items-center bg-[#070b14] text-white">Loading Volt…</div>}><DesignC /></Suspense>} />
+    <Route path="/design-d" element={<Suspense fallback={<div className="grid min-h-screen place-items-center bg-[#f6efe8] text-[#1c1210]">Loading Ember…</div>}><DesignD /></Suspense>} />
     <Route path="/" element={<Home/>}/>
     <Route path="/login" element={<LoginScreen/>}/>
     <Route path="/signup" element={<LoginScreen/>}/>

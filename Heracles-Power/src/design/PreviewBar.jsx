@@ -34,6 +34,12 @@ export default function PreviewBar({ tone = "dark" }) {
           <Link className={chip(dark, false)} to="/design-b">
             B · Daylight
           </Link>
+          <Link className={chip(dark, false)} to="/design-c">
+            C · Volt
+          </Link>
+          <Link className={chip(dark, false)} to="/design-d">
+            D · Ember
+          </Link>
           <Link className={chip(dark, true)} to="/bmi">
             BMI
           </Link>

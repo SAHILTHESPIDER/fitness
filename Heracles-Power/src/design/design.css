@@ -36,7 +36,31 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .spin-mark {
+  .spin-mark,
+  .marquee-track,
+  .wash-drift {
     animation: none;
   }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.wash-drift {
+  background-size: 140% 140%, 140% 140%, auto;
+  animation: wash-drift 16s ease-in-out infinite;
+}
+
+@keyframes wash-drift {
+  0%, 100% { background-position: 0% 0%, 100% 20%, 0 0; }
+  50% { background-position: 30% 10%, 70% 40%, 0 0; }
 }
