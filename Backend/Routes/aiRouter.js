@@ -115,8 +115,8 @@ router.post("/workouts", async (req, res) => {
     if (!cleanDays.length) {
       return res.status(502).json({ success: false, message: "The coach could not match exercises from the list. Try again.", safety: SAFETY });
     }
-    const plan = { createdAt: new Date().toISOString(), setting, days: cleanDays, safety: SAFETY };
-    return res.json({ success: true, plan, safety: SAFETY });
+    const built = { createdAt: new Date().toISOString(), setting, days: cleanDays, safety: SAFETY };
+    return res.json({ success: true, plan: built, safety: SAFETY });
   } catch {
     return res.status(502).json({ success: false, message: "The coach could not answer just now. Try again in a moment.", safety: SAFETY });
   }
